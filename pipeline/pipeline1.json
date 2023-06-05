@@ -1,0 +1,97 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data1",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzurePostgreSqlSource",
+						"partitionOption": "None"
+					},
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "nome",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "nome",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "idade",
+									"type": "Int32",
+									"physicalType": "integer"
+								},
+								"sink": {
+									"name": "idade",
+									"type": "Int32",
+									"physicalType": "INT_32"
+								}
+							},
+							{
+								"source": {
+									"name": "cargo",
+									"type": "String",
+									"physicalType": "character varying"
+								},
+								"sink": {
+									"name": "cargo",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "AzurePostgreSqlTable1",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Parquet1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2023-06-05T18:38:17Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,36 @@
+{
+	"name": "AzurePostgreSqlTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzurePostgreSql1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "nome",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "idade",
+				"type": "integer",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "cargo",
+				"type": "character varying",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "public",
+			"table": "poc"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

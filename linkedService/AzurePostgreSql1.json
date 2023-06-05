@@ -1,0 +1,24 @@
+{
+	"name": "AzurePostgreSql1",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzurePostgreSql",
+		"typeProperties": {
+			"connectionString": "Host=azure-psql-poc.postgres.database.azure.com;Port=5432;Database=postgres;UID=admin_psql@azure-psql-poc;EncryptionMethod=1;ValidateServerCertificate=0",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "secret-key-psql-poc",
+				"secretVersion": "080a36c165ee4067a562247ae48b7e67"
+			}
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime1",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"name": "adf-poc-ec",
+	"properties": {
+		"encryption": {
+			"identity": {
+				"userAssignedIdentity": "/subscriptions/71909935-a76b-4b1b-9e95-370dcbfb4b62/resourcegroups/rg-poc/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-poc"
+			},
+			"VaultBaseUrl": "https://kv-poc-ec.vault.azure.net",
+			"KeyName": "adf-key",
+			"KeyVersion": "946c7acdc7b44d7dba5c12b5978db941"
+		}
+	},
+	"location": "northeurope",
+	"identity": {
+		"type": "SystemAssigned,UserAssigned",
+		"principalId": "bf1a0ff8-83f8-42a9-860f-ec96fd9d0f57",
+		"tenantId": "c4c8314d-105e-4ce9-8b97-243ef169f219",
+		"userAssignedIdentities": {
+			"/subscriptions/71909935-a76b-4b1b-9e95-370dcbfb4b62/resourcegroups/rg-poc/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-poc": {
+				"clientId": "9ea8d4ec-41dd-48ba-8c40-b4aeefbc6796",
+				"principalId": "36c621cf-7b50-4859-8fbe-01ef77b6836f"
+			}
+		}
+	}
+}
